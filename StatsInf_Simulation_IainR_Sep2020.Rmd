@@ -1,0 +1,34 @@
+---
+title: "Simulation of Exponential Distribution"
+author: "Iain Russell"
+date: "02/09/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Overview
+
+llustrate via simulation and associated explanatory text the properties of the distribution of the mean of 40 exponentials.
+
+## Simulations
+
+```{r}
+mns = NULL
+for (i in 1 : 1000) mns = c(mns, mean(rexp(40,rate=0.2)))
+```
+
+## Sample Mean versus Theoretical Mean
+
+
+## Sample Variance versus Theoretical Variance
+
+
+## Distribution
+
+```{r}
+plot(hist(mns))
+```
+
