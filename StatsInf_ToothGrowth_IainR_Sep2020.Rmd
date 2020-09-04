@@ -1,0 +1,56 @@
+---
+title: "ToothGrowth inferential data analysis"
+author: "Iain Russell"
+date: "04/09/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data and Libraries
+ 
+```{r}
+data("ToothGrowth")
+library(dplyr)
+library(reshape2)
+library(ggplot2)
+```
+
+## Exploratory data analysis
+
+```{r}
+str(ToothGrowth)
+summary(ToothGrowth)
+head(ToothGrowth)
+```
+
+The dataset contains observations of effect of vitamin C on tooth growth in 60 guinea pigs, 30 using orange juice (OJ) delivery method, the other 30 using ascorbic acid (VC) delivery method. 
+
+```{r}
+ToothGrowth %>% filter(supp == 'OJ') %>% nrow
+ToothGrowth %>% filter(supp == 'VC') %>% nrow
+
+```
+
+Each animal was given a supplement dose of either 0.5,1, or 2 milligrams per day. Therefore each animal in the study is independent.
+
+```{r}
+ToothGrowth %>% filter(dose == 0.5) %>% nrow
+ToothGrowth %>% filter(dose == 1) %>% nrow
+ToothGrowth %>% filter(dose == 2) %>% nrow
+
+```
+
+
+The boxplot shows that in general the OJ supplement yields greater toothgrowth than the VC supplement, except for the higher dose of 2.
+
+```{r}
+ggplot(ToothGrowth, aes(supp, len, fill = supp)) + geom_boxplot() + facet_grid(. ~ dose)
+
+```
+
+## Dose and Supp testing
+
+
