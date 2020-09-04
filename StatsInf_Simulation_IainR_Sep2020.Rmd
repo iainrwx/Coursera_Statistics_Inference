@@ -32,7 +32,7 @@ nosims = 1000
 sims = apply(matrix(rexp(nosims * n, rate=lambda), nosims), 1, mean)
 ```
 
-The theoretical population mean, mu, and standard deviation, sigma, are computed as 1/lambda and in accordance with the CLT are then used to shift and scale the distribution of sample means so that it is comparable with a standard normal distribution.
+The theoretical mean, mu, and standard deviation, sigma, are computed as 1/lambda and in accordance with the CLT are then used to shift and scale the distribution of sample means so that it is comparable with a standard normal distribution.
 
 ```{r}
 mu = sigma = 1/lambda
@@ -51,7 +51,7 @@ mean(sims)
 mu
 ```
 
-A 95% confidence interval for the population mean contains the theoretical mean mu (5), indicating that the sample mean is a good estimate of the population mean.
+A 95% confidence interval for the mean contains the theoretical mean mu (5), indicating that the sample mean is a good estimate of the population mean.
 
 ```{r}
 mean(sims) + c(-1,1) * qnorm(.975) * se
@@ -59,7 +59,7 @@ mean(sims) + c(-1,1) * qnorm(.975) * se
 
 ## Sample Variance versus Theoretical Variance
 
-The theoretical variance is sigma^2/n, where sigma is the population standard deviation, or 1/lambda.
+The theoretical variance is sigma^2/n, where sigma is the standard deviation, or 1/lambda.
 
 ```{r}
 sigma^2/n
