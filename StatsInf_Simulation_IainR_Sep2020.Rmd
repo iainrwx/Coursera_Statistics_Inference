@@ -2,7 +2,7 @@
 title: "Simulation to investigate the Central Limit Theorem"
 author: "Iain Russell"
 date: "04/09/2020"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
